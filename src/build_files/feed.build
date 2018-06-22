@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<project default="cleanCompile">
+	<property name="config.buildType" value="debug" unless="${property::exists('config.buildType')}" />
+	<property name="config.buildMode" value="/t:Rebuild" />
+	<property name="config.targetSourceRoot" value=".." unless="${property::exists('config.targetSourceRoot')}" />
+	<property name="nant.settings.currentframework" value="net-3.5"/>
+	<property name="config.devenvPath" value="${environment::get-folder-path('ProgramFiles')}\Microsoft Visual Studio 10.0\Common7\IDE\devenv.com" unless="${property::exists('config.devenvPath')}" />
+	<property name="config.msbuildPath" value="C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" unless="${property::exists('config.msbuildPath')}" />
+	
+	<target name="cleanCompile" depends="cleanbin">
+		<call target="compile" />
+	</target>
+	<target name="incremental">
+	    <property name="config.buildMode" value="/t:Build" />
+		<call target="compile" />
+	</target>
+
+	<target name="compile">
+		<exec program="${config.msbuildPath}">
+			<arg value="..\FeedGenerators.sln" />
+			<arg value="${config.buildMode}" />
+			<arg value="/p:Configuration=${config.buildType}" />
+		</exec>
+	
+	</target>
+
+	<target name="cleanbin">
+		<delete failonerror="false">
+			<fileset basedir="${config.targetSourceRoot}">
+				<include name="**/bin/**" />
+				<include name="**/obj/**" />
+				<include name="**/*.suo" />
+				<include name="**/*.user" />
+			</fileset>
+		</delete>
+	</target>
+</project>

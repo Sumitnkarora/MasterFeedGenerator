@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{71669776-5420-4648-A539-7AC8F5FE9A06}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Indigo.Feeds.Generator.Core</RootNamespace>
+    <AssemblyName>Indigo.Feeds.Generator.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Environment|AnyCPU'">
+    <OutputPath>bin\Environment\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Indigo.Feeds, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Indigo.Feeds.3.28.6.10014\lib\Net461\Indigo.Feeds.dll</HintPath>
+    </Reference>
+    <Reference Include="Indigo.Utils, Version=1.0.6074.28871, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Indigo.Utils.3.13.1.10016\lib\Indigo.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.4, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Indigo.Log4net.2.0.4\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NewRelic.Api.Agent, Version=6.18.139.0, Culture=neutral, PublicKeyToken=06552fced0b33d87, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewRelic.Agent.Api.6.18.139.0\lib\net35\NewRelic.Api.Agent.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2013.4.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2013.4.7\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Exceptional, Version=1.0.130.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Exceptional.1.0.130\lib\net40\StackExchange.Exceptional.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums\OutputFormat.cs" />
+    <Compile Include="Enums\RunType.cs" />
+    <Compile Include="Execution\Builder.cs" />
+    <Compile Include="Execution\Contracts\IBuilder.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Models\FtpConfiguration.cs" />
+    <Compile Include="Models\NetworkConfiguration.cs" />
+    <Compile Include="Models\ProcessingCounters.cs" />
+    <Compile Include="Models\ReportInformation.cs" />
+    <Compile Include="Processors\BaseFileProcessor.cs" />
+    <Compile Include="Processors\BaseOutputProcessor.cs" />
+    <Compile Include="Processors\Contracts\IDestinationProcessor.cs" />
+    <Compile Include="Processors\Contracts\IFileContentProcessor.cs" />
+    <Compile Include="Processors\Contracts\IOutputProcessor.cs" />
+    <Compile Include="Execution\Contracts\IRunner.cs" />
+    <Compile Include="Execution\ExecutionInformation.cs" />
+    <Compile Include="Processors\Contracts\IXmlFileContentProcessor.cs" />
+    <Compile Include="Processors\JsonInstructionProcessor.cs" />
+    <Compile Include="Processors\NetworkFolderProcessor.cs" />
+    <Compile Include="Processors\OutputInstructionProcessor.cs" />
+    <Compile Include="Processors\OutputXmlProcessor.cs" />
+    <Compile Include="Execution\Runner.cs" />
+    <Compile Include="Models\BaseExportData.cs" />
+    <Compile Include="Models\DataResult.cs" />
+    <Compile Include="Models\ExportData.cs" />
+    <Compile Include="Models\OutputInstruction.cs" />
+    <Compile Include="Processors\SftpProcessor.cs" />
+    <Compile Include="Processors\XmlContentProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Contracts\IDataService.cs" />
+    <Compile Include="Utils\GeneratorHelper.cs" />
+    <Compile Include="Utils\LoggingHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FeedGenerators.Core\FeedGenerators.Core.csproj">
+      <Project>{f2e68a0f-0ddf-4e83-a799-765d560c5899}</Project>
+      <Name>FeedGenerators.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NewRelic\FeedsInstrumentation.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

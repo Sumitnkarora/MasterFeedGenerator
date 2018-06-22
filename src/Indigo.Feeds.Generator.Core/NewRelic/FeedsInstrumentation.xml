@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="Custom/FeedBuild">
+      <match assemblyName="Indigo.Feeds.Generator.Core" className="Indigo.Feeds.Generator.Core.Execution.Builder">
+        <exactMethodMatcher methodName="Build" />
+      </match>
+    </tracerFactory>
+    <tracerFactory metricName="Custom/RunnerExecute">
+      <match assemblyName="Indigo.Feeds.Generator.Core" className="Indigo.Feeds.Generator.Core.Execution.Runner">
+        <exactMethodMatcher methodName="Execute" />
+      </match>
+    </tracerFactory>
+  </instrumentation>
+</extension>

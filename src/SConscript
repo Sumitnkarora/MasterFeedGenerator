@@ -1,0 +1,9 @@
+Import("env")
+
+denv=env.Copy()
+#Compile code (default target)
+
+
+#Compile shop with 2008 now, no need for shop services build anymore
+env.Nant(source="build_files/feed.build")
+

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "shopping-content-project",
+  "private_key_id": "9b37a14fdbe1bf17aa7c9a528848ea03d8cf52be",
+  "private_key": "#{FMT.ShoppingContentProject.PrivateKey}",
+  "client_email": "prod-feedsvc@shopping-content-project.iam.gserviceaccount.com",
+  "client_id": "104378482678641436025",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/prod-feedsvc%40shopping-content-project.iam.gserviceaccount.com"
+}
